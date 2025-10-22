@@ -61,9 +61,17 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="section-padding">
-      <div className="max-w-7xl mx-auto">
+    <section id="contact" className="section-padding relative overflow-hidden">
+      {/* Background Decoration */}
+      <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-pulse"></div>
+      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-secondary/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
+
+      <div className="max-w-7xl mx-auto relative">
         <div className="text-center mb-16">
+          <div className="inline-flex items-center gap-2 glass-card px-4 py-2 rounded-full mb-4 animate-pulse-glow">
+            <Send className="w-4 h-4 text-primary" />
+            <span className="text-sm text-muted-foreground">Let's Connect</span>
+          </div>
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
             Get in <span className="gradient-text">Touch</span>
           </h2>
@@ -84,14 +92,17 @@ const Contact = () => {
                   href={info.href}
                   target={info.href.startsWith("http") ? "_blank" : undefined}
                   rel={info.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                  className="glass-card p-4 rounded-xl flex items-center gap-4 hover-lift group"
+                  className="glass-card p-5 rounded-xl flex items-center gap-4 hover-lift group relative overflow-hidden"
                 >
-                  <div className="p-3 rounded-lg bg-primary/20 group-hover:bg-primary/30 transition-colors">
-                    <info.icon className="text-primary" size={24} />
+                  {/* Gradient Overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-primary/5 to-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                  
+                  <div className="relative p-3 rounded-xl bg-gradient-to-r from-primary/20 to-secondary/20 group-hover:from-primary group-hover:to-secondary transition-all duration-500">
+                    <info.icon className="text-primary group-hover:text-white transition-colors" size={24} />
                   </div>
-                  <div>
-                    <p className="text-sm text-muted-foreground">{info.label}</p>
-                    <p className="font-medium">{info.value}</p>
+                  <div className="relative">
+                    <p className="text-xs text-muted-foreground mb-1">{info.label}</p>
+                    <p className="font-medium group-hover:text-primary transition-colors">{info.value}</p>
                   </div>
                 </a>
               ))}
