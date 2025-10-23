@@ -4,6 +4,32 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Mail, Phone, Linkedin, Github, Send } from "lucide-react";
 import { toast } from "sonner";
+import emailjs from "@emailjs/browser";
+import { z } from "zod";
+
+// EmailJS Configuration
+const EMAILJS_SERVICE_ID = "service_fivelqs";
+const EMAILJS_TEMPLATE_ID = "template_kfziiqf";
+const EMAILJS_PUBLIC_KEY = "9DJly9nT8LNzIrlUr";
+
+// Initialize EmailJS
+emailjs.init(EMAILJS_PUBLIC_KEY);
+
+// Form validation schema
+const contactSchema = z.object({
+  name: z.string()
+    .trim()
+    .min(1, { message: "Name is required" })
+    .max(100, { message: "Name must be less than 100 characters" }),
+  email: z.string()
+    .trim()
+    .email({ message: "Invalid email address" })
+    .max(255, { message: "Email must be less than 255 characters" }),
+  message: z.string()
+    .trim()
+    .min(1, { message: "Message is required" })
+    .max(1000, { message: "Message must be less than 1000 characters" }),
+});
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -11,6 +37,7 @@ const Contact = () => {
     email: "",
     message: "",
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const contactInfo = [
     {
@@ -39,25 +66,44 @@ const Contact = () => {
     },
   ];
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    // Simple validation
-    if (!formData.name || !formData.email || !formData.message) {
-      toast.error("Please fill in all fields");
-      return;
+    // Validate form data
+    try {
+      contactSchema.parse(formData);
+    } catch (error) {
+      if (error instanceof z.ZodError) {
+        toast.error(error.errors[0].message);
+        return;
+      }
     }
 
-    // Email validation
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(formData.email)) {
-      toast.error("Please enter a valid email address");
-      return;
-    }
+    setIsSubmitting(true);
 
-    // In a real application, you would send this to a backend
-    toast.success("Message sent successfully! I'll get back to you soon.");
-    setFormData({ name: "", email: "", message: "" });
+    try {
+      // Send email using EmailJS
+      const templateParams = {
+        from_name: formData.name,
+        from_email: formData.email,
+        message: formData.message,
+        to_name: "Komal Pachouri",
+      };
+
+      await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        templateParams
+      );
+
+      toast.success("Message sent successfully! I'll get back to you soon.");
+      setFormData({ name: "", email: "", message: "" });
+    } catch (error) {
+      console.error("EmailJS Error:", error);
+      toast.error("Failed to send message. Please try again or contact me directly.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -176,8 +222,9 @@ const Contact = () => {
                 type="submit"
                 size="lg"
                 className="w-full bg-gradient-to-r from-primary to-secondary hover:opacity-90"
+                disabled={isSubmitting}
               >
-                Send Message
+                {isSubmitting ? "Sending..." : "Send Message"}
                 <Send size={18} className="ml-2" />
               </Button>
             </form>
