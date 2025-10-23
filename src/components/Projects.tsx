@@ -13,7 +13,7 @@ const Projects = () => {
       description:
         "A full-stack travel listing platform where users can add, review, and remove listings with integrated maps for location visualization.",
       image: travelImage,
-      technologies: ["MongoDB", "Express", "React", "Node.js"],
+      technologies: ["MongoDB", "Express", "Node.js", "EJS"],
       github: "https://github.com/komal-Pachouri",
       live: "#",
       featured: true,
@@ -23,7 +23,7 @@ const Projects = () => {
       description:
         "A pixel-perfect music streaming UI clone replicating Spotify's modern layout, playlists, and player controls.",
       image: spotifyImage,
-      technologies: ["HTML", "CSS", "JavaScript"],
+      technologies: ["HTML", "CSS"],
       github: "https://github.com/komal-Pachouri",
       live: "#",
       featured: true,
