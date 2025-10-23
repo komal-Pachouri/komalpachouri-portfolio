@@ -127,7 +127,7 @@ const Hero = () => {
                 <img
                   src={profileImage}
                   alt="Komal Pachouri - MERN Stack Developer"
-                  className="relative rounded-full w-full aspect-square object-cover border-4 border-primary/30 shadow-glow hover:scale-105 transition-transform duration-500"
+                  className="relative rounded-full w-full aspect-square object-contain border-4 border-primary/30 shadow-glow hover:scale-105 transition-transform duration-500 bg-gradient-to-br from-primary/10 to-secondary/10"
                 />
                 
                 {/* Floating Tags */}
