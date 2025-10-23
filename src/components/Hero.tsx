@@ -116,18 +116,18 @@ const Hero = () => {
           <div className="relative animate-fade-in">
             <div className="relative w-full max-w-md mx-auto">
               {/* Gradient Glow */}
-              <div className="absolute inset-0 bg-gradient-to-r from-primary to-secondary rounded-full blur-3xl opacity-30 animate-pulse"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-primary to-secondary rounded-3xl blur-3xl opacity-30 animate-pulse"></div>
               
-              {/* Decorative Rings */}
-              <div className="absolute inset-0 rounded-full border-2 border-primary/20 animate-ping" style={{ animationDuration: '3s' }}></div>
-              <div className="absolute inset-4 rounded-full border-2 border-secondary/20 animate-ping" style={{ animationDuration: '3s', animationDelay: '0.5s' }}></div>
+              {/* Decorative Corners */}
+              <div className="absolute -inset-4 border-2 border-primary/20 rounded-3xl animate-pulse" style={{ animationDuration: '3s' }}></div>
+              <div className="absolute -inset-2 border-2 border-secondary/20 rounded-3xl animate-pulse" style={{ animationDuration: '3s', animationDelay: '0.5s' }}></div>
               
               {/* Profile Image */}
               <div className="relative">
                 <img
                   src={profileImage}
                   alt="Komal Pachouri - MERN Stack Developer"
-                  className="relative rounded-full w-full aspect-square object-contain border-4 border-primary/30 shadow-glow hover:scale-105 transition-transform duration-500 bg-gradient-to-br from-primary/10 to-secondary/10"
+                  className="relative rounded-2xl w-full aspect-[3/4] object-cover border-4 border-primary/30 shadow-glow hover:scale-105 transition-transform duration-500"
                 />
                 
                 {/* Floating Tags */}
