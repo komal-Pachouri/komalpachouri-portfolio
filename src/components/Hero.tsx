@@ -114,7 +114,7 @@ const Hero = () => {
 
           {/* Right Content - Profile Image with Decorative Elements */}
           <div className="relative animate-fade-in">
-            <div className="relative w-full max-w-md mx-auto">
+            <div className="relative w-full max-w-xs mx-auto">
               {/* Gradient Glow */}
               <div className="absolute inset-0 bg-gradient-to-r from-primary to-secondary rounded-3xl blur-3xl opacity-30 animate-pulse"></div>
               
