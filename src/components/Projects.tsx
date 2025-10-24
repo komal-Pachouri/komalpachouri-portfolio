@@ -115,20 +115,22 @@ const Projects = () => {
                       Code
                     </a>
                   </Button>
-                  <Button
-                    size="sm"
-                    className="bg-gradient-to-r from-primary to-secondary hover:opacity-90 shadow-glow"
-                    asChild
-                  >
-                    <a
-                      href={project.live}
-                      target="_blank"
-                      rel="noopener noreferrer"
+                  {project.live !== "#" && (
+                    <Button
+                      size="sm"
+                      className="bg-gradient-to-r from-primary to-secondary hover:opacity-90 shadow-glow"
+                      asChild
                     >
-                      <ExternalLink size={16} className="mr-2" />
-                      Demo
-                    </a>
-                  </Button>
+                      <a
+                        href={project.live}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <ExternalLink size={16} className="mr-2" />
+                        Demo
+                      </a>
+                    </Button>
+                  )}
                 </div>
               </div>
 
