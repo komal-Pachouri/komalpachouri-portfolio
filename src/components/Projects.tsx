@@ -2,7 +2,7 @@ import { ExternalLink, Github } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import travelImage from "@/assets/project-travel-new.png";
 import spotifyImage from "@/assets/project-spotify-new.png";
-import weatherImage from "@/assets/project-weather-new.png";
+import weatherImage from "@/assets/project-weather-cropped.png";
 import todoImage from "@/assets/project-todo.jpg";
 import gamesImage from "@/assets/project-games.jpg";
 
