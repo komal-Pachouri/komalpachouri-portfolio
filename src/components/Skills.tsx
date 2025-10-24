@@ -12,6 +12,7 @@ const Skills = () => {
         { name: "React.js", level: 85 },
         { name: "Redux", level: 80 },
         { name: "Tailwind CSS", level: 90 },
+        { name: "Bootstrap", level: 85 },
       ],
       color: "from-primary to-purple-500",
     },
