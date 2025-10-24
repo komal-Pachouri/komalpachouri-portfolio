@@ -1,8 +1,8 @@
 import { ExternalLink, Github } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import travelImage from "@/assets/project-travel.jpg";
-import spotifyImage from "@/assets/project-spotify.jpg";
-import weatherImage from "@/assets/project-weather.jpg";
+import travelImage from "@/assets/project-travel-new.png";
+import spotifyImage from "@/assets/project-spotify-new.png";
+import weatherImage from "@/assets/project-weather-new.png";
 import todoImage from "@/assets/project-todo.jpg";
 import gamesImage from "@/assets/project-games.jpg";
 
@@ -14,8 +14,8 @@ const Projects = () => {
         "A full-stack travel listing platform where users can add, review, and remove listings with integrated maps for location visualization.",
       image: travelImage,
       technologies: ["MongoDB", "Express", "Node.js", "EJS"],
-      github: "https://github.com/komal-Pachouri",
-      live: "#",
+      github: "https://github.com/komal-Pachouri/Project.git",
+      live: "https://wanderlust-project-u615.onrender.com",
       featured: true,
     },
     {
@@ -24,7 +24,7 @@ const Projects = () => {
         "A pixel-perfect music streaming UI clone replicating Spotify's modern layout, playlists, and player controls.",
       image: spotifyImage,
       technologies: ["HTML", "CSS"],
-      github: "https://github.com/komal-Pachouri",
+      github: "https://github.com/komal-Pachouri/Mini-Project.git",
       live: "#",
       featured: true,
     },
@@ -34,7 +34,7 @@ const Projects = () => {
         "Real-time weather information app built with React, displaying current conditions and forecasts using weather APIs.",
       image: weatherImage,
       technologies: ["React.js", "CSS", "Weather API"],
-      github: "https://github.com/komal-Pachouri",
+      github: "https://github.com/komal-Pachouri/Mini-Project.git",
       live: "#",
       featured: false,
     },
@@ -44,7 +44,7 @@ const Projects = () => {
         "Task management application demonstrating Redux state management with add, delete, and mark complete functionality.",
       image: todoImage,
       technologies: ["React", "Redux", "CSS"],
-      github: "https://github.com/komal-Pachouri",
+      github: "https://github.com/komal-Pachouri/Mini-Project.git",
       live: "#",
       featured: false,
     },
@@ -54,7 +54,7 @@ const Projects = () => {
         "Collection of interactive games including Simon Game, Stone Paper Scissor, and more, built with vanilla JavaScript.",
       image: gamesImage,
       technologies: ["HTML", "CSS", "JavaScript"],
-      github: "https://github.com/komal-Pachouri",
+      github: "https://github.com/komal-Pachouri/Mini-Project.git",
       live: "#",
       featured: false,
     },
